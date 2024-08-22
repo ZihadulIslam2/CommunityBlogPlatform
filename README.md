@@ -16,3 +16,15 @@
 
 - These templates are used to generate HTML dynamically by replacing variables with actual values at runtime. This makes it easier to design and manage HTML pages.
 - using EJS
+
+## practice task
+
+-create app1.js
+-setup all the things
+-set up view engine and
+-pass dynamic data
+
+## problem
+
+- ejs view engine setup.
+-
