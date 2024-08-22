@@ -1,7 +1,14 @@
 # key concepts
 
 -view engine
--create handeler function.
+-create handler function.
+
+- create dynamic content using ejs
+- pass title server(app.js) to html dynamically
+  - pass data and access data using view engine.
+  - output an array of string.
+
+------ this whole process is called server side rendering ----
 
 # View engine
 
@@ -9,5 +16,3 @@
 
 - These templates are used to generate HTML dynamically by replacing variables with actual values at runtime. This makes it easier to design and manage HTML pages.
 - using EJS
-
--npm i lodash
