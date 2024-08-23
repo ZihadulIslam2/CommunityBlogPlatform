@@ -5,10 +5,12 @@
 
 - create dynamic content using ejs
 - pass title server(app.js) to html dynamically
+
   - pass data and access data using view engine.
   - output an array of string.
 
------- this whole process is called server side rendering ----
+- partial template
+  ------ this whole process is called server side rendering ----
 
 # View engine
 
