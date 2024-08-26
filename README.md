@@ -1,32 +1,55 @@
 # key concepts
 
--view engine
--create handler function.
+-middleware
+-runs on server before getting a req and sending a res.
+-app.use(fun) is a middleware
+-use next()
+-third party middleware.
 
-- create dynamic content using ejs
-- pass title server(app.js) to html dynamically
+## middleware example:
 
-  - pass data and access data using view engine.
-  - output an array of string.
+- return 404
+- Logger middleware to log details of every request
+- Authentication check
+- middleware to parse json data from request
+- // middleware
+  app.use((req, res, next) => {
+  console.log('new req made.')
+  console.log(req.hostname)
+  console.log(req.method)
+  console.log(req.path)
+  next()
+  })
 
-- partial template
-  ------ this whole process is called server side rendering ----
+## Third party middleware.
 
-# View engine
+-morgan
+-// middleware using morgan
+app.use(morgan('dev'))
 
--view engine is a tool that allows you to use template files in your application.
+-middelware static file
 
-- These templates are used to generate HTML dynamically by replacing variables with actual values at runtime. This makes it easier to design and manage HTML pages.
-- using EJS
+- add css file static using morgan?
+  -in the public folder everyting can be access by browser.
 
 ## practice task
 
--create app1.js
--setup all the things
--set up view engine and
--pass dynamic data
+- export a style sheet file.
+- and practice everything.
+
+## steps from scratch
+
+-create a server using express
+-listen to the server
+-output dynamic value
+
+- require ejs
+- set as default view engine.
+- require express.
+- out put an array.
+- output a css file.
+  -use the morgan pacage
 
 ## problem
 
-- ejs view engine setup.
 -

@@ -1,4 +1,5 @@
 const express = require('express')
+const morgan = require('morgan')
 
 // express app
 // invoking the express
@@ -6,6 +7,15 @@ const app = express()
 
 // register view engine
 app.set('view engine', 'ejs')
+
+// listen for requests
+app.listen(8080)
+
+// middleware static file
+app.use(express.static('public'))
+
+// next middleware using morgan
+app.use(morgan('dev'))
 
 // this are called handler
 app.get('/', (req, res) => {
@@ -48,6 +58,3 @@ app.get('/blogs/create', (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404')
 })
-
-// listen for requests
-app.listen(8080)
