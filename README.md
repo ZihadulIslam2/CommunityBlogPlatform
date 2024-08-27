@@ -53,3 +53,40 @@ app.use(morgan('dev'))
 ## problem
 
 -
+
+# class 9
+
+mongodb
+-collection
+-Documents
+
+setup mongodb
+
+connect to the db
+-grap the connection url
+
+mongoosh
+-schama
+-stracher of type of data.
+
+- user schama
+- user name
+- age
+- bio
+
+blogs schama
+-title
+-snippet
+-body
+
+model
+
+### create a Models based on the schama
+
+### connect to the mongodb database
+
+# practice Time
+
+-start from scratch
+-do all the things to do
+-connect to the database

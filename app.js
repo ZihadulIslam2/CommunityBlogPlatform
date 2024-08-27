@@ -1,15 +1,25 @@
 const express = require('express')
 const morgan = require('morgan')
-
+const mongoose = require('mongoose')
 // express app
 // invoking the express
 const app = express()
+
+// mongodb connection
+const dbURI =
+  'mongodb+srv://zihadul708:01882343242@nodetuts.xnfrv.mongodb.net/?retryWrites=true&w=majority&appName=nodetuts'
+
+mongoose
+  .connect(dbURI)
+  .then((result) => app.listen(8080))
+  .catch((err) => {
+    console.log(err)
+  })
 
 // register view engine
 app.set('view engine', 'ejs')
 
 // listen for requests
-app.listen(8080)
 
 // middleware static file
 app.use(express.static('public'))
