@@ -29,29 +29,6 @@ app.use(express.static('public'))
 // next middleware using morgan
 app.use(morgan('dev'))
 
-// this are called handler
-app.get('/', (req, res) => {
-  const blogs = [
-    {
-      title: 'How impress a girl',
-      snippet:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nam!',
-    },
-    {
-      title: 'How to make her happy',
-      snippet:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nam!',
-    },
-    {
-      title: 'How say her about your feelings.',
-      snippet:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nam!',
-    },
-  ]
-
-  res.render('index', { title: 'Home', blogs })
-})
-
 app.get('/about', (req, res) => {
   res.render('about', { title: 'about' })
 })
@@ -61,29 +38,17 @@ app.get('/about-me', (req, res) => {
   res.redirect('/about')
 })
 
-// getting and saving data to mongodb
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'new blog',
-    snippet: 'about my new blog',
-    body: 'more about my new blog',
-  })
-
-  blog
-    .save()
-    .then((result) => {
-      res.send(result) // Send the result back as a response
-    })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).send('Error saving the blog') // Sending a response in case of error
-    })
+// this are called handler
+app.get('/', (req, res) => {
+  res.redirect('/blogs')
 })
 
-app.get('/all-blogs', (req, res) => {
+//blog routs
+app.get('/blogs', (req, res) => {
   Blog.find()
+    .sort({ createdAt: -1 })
     .then((result) => {
-      res.send(result)
+      res.render('index', { title: 'all blogs', blogs: result })
     })
     .catch((err) => {
       console.log(err)
